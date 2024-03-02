@@ -1,35 +1,12 @@
 import OpenAI from "openai";
 import { OpenAIStream, StreamingTextResponse } from "ai";
 
-type TMP = OpenAI.Chat.Completions.ChatCompletionCreateParams.Function[];
+import { createFunctionDesc } from "@/meme-gen/schema";
+import { memeTemplates } from "@/meme-gen/memes";
 
-const memeGeneratorFunctions: OpenAI.Chat.Completions.ChatCompletionCreateParams.Function[] =
-  [
-    {
-      name: "generate_drake_hotline_bling_meme",
-      description: `
-      One of the most popular memes on the Internet, this template shows Drake first leaning to the side expressing distaste for a certain thing, then in the bottom panel, expressing more like for a similar but better thing. In the top panel (text_1), Drake says "no" to something he dislikes, but in the bottom panel (text_2), Drake says "yes" to something he likes. You should use the Drake meme maker to show a similar but subtly clear comparison between two things. 
+const functions = memeTemplates.map((template) => createFunctionDesc(template));
 
-      # Example
-      text_1: Use study guides
-      text_2: Don't study
-      `,
-      parameters: {
-        type: "object",
-        properties: {
-          text_1: {
-            type: "string",
-            description: "something drake says 'no' to, something he dislikes",
-          },
-          text_2: {
-            type: "string",
-            description: "something drake says 'yes' to, something he likes",
-          },
-        },
-        required: ["text_1", "text_2"],
-      },
-    },
-  ];
+console.log("functions", functions);
 
 const systemPrompts: OpenAI.Chat.Completions.ChatCompletionMessageParam[] = [
   {
@@ -58,7 +35,7 @@ export async function POST(req: Request) {
     model: "gpt-4-0125-preview",
     stream: true,
     messages,
-    functions: memeGeneratorFunctions,
+    functions,
   });
 
   // Convert the response into a friendly text-stream

@@ -10,7 +10,7 @@ export default function Options({
   alreadySelected: boolean;
 }) {
   return (
-    <div className="flex gap-3 justify-center">
+    <div className="fixed bottom-0 w-full max-w-md p-2 mb-8 border border-gray-300 rounded shadow-xl flex gap-3 justify-center">
       {options.map((option, idx: number) => (
         <button
           key={idx}

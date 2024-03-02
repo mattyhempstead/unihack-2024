@@ -27,12 +27,12 @@ export default function Generate() {
     functionCall,
   ) => {
     console.log('function handler!');
-    console.log(chatMessages);
 
     memeTemplates.forEach((template) => {
       if (functionCall.name === getFunctionName(template.name)) {
         const parsedArgs = JSON.parse(functionCall.arguments ?? '');
         console.log(parsedArgs);
+        console.log(chatMessages);
 
         setState({
           name: template.name,
@@ -50,13 +50,6 @@ export default function Generate() {
     experimental_onFunctionCall: onFunctionCall,
   });
 
-  const memeRenderer = memeTemplates.find(
-    (template) => template.name === state?.name,
-  )?.render;
-
-  const memeJsx =
-    memeRenderer && state?.props ? memeRenderer(state.props) : null;
-
   const [moodSelected, setMoodSelected] = useState(false);
   const handleSelectMood = (option: string) => {
     setMoodSelected(true);
@@ -69,9 +62,6 @@ export default function Generate() {
   return (
     <div className="flex flex-col max-w-md justify-between py-24 mx-auto stretch">
       <div>
-        <pre>{JSON.stringify(state, null, 2)}</pre>
-        {memeJsx}
-
         <div className="flex flex-col gap-6">
           <ChatMessage
             role="assistant"
@@ -80,28 +70,31 @@ export default function Generate() {
           {messages
             .filter((m) => m.role === 'user' || m.role === 'assistant')
             .map((m, idx) => (
-              <ChatMessage role={m.role} key={idx} message={m.content} />
+              <ChatMessage
+                role={m.role}
+                key={idx}
+                message={m.content}
+                state={state}
+              />
             ))}
         </div>
       </div>
-      <div className="fixed bottom-0 w-full max-w-md p-2 mb-8 border border-gray-300 rounded shadow-xl">
-        {moodSelected ? (
-          <form onSubmit={handleSubmit}>
-            <input
-              className="h-full w-full p-2"
-              value={input}
-              placeholder="Say something..."
-              onChange={handleInputChange}
-            />
-          </form>
-        ) : (
-          <Options
-            options={moods}
-            handleSelect={handleSelectMood}
-            alreadySelected={moodSelected}
+      {moodSelected ? (
+        <form onSubmit={handleSubmit}>
+          <input
+            className="fixed bottom-0 w-full max-w-md p-4 mb-8 border border-gray-300 rounded shadow-xl"
+            value={input}
+            placeholder="Say something..."
+            onChange={handleInputChange}
           />
-        )}
-      </div>
+        </form>
+      ) : (
+        <Options
+          options={moods}
+          handleSelect={handleSelectMood}
+          alreadySelected={moodSelected}
+        />
+      )}
     </div>
   );
 }

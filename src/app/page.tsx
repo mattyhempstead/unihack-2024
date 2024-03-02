@@ -1,51 +1,12 @@
 'use client';
 
-import { useChat } from 'ai/react';
 import Link from 'next/link';
-import Image from 'next/image';
-
-type MemeTemplates = 'drake_hotline' | 'distracted_boyfriend';
-
-type GenerateMemeArgs = {
-  template: MemeTemplates;
-  message: string;
-};
-
-function generateMeme(args: GenerateMemeArgs) { }
 
 export default function Chat() {
-  const { messages, input, handleInputChange, handleSubmit } = useChat({
-    initialMessages: [
-      {
-        id: 'SYSTEM',
-        role: 'system',
-        content:
-          "You're an annoying assistant, your job is to respond using as many meows as possible",
-      },
-      {
-        id: 'SYSTEM_2',
-        role: 'system',
-        content:
-          'You can call a function called generateMeme, it creates memes! If you want to use this function, you need to provide the following arguments: template (enum), message (string). You will need to respond in a JSON format',
-      },
-    ],
-  });
-
-  /**
-   *
-   * [
-   * { role: "system", message: "you're a meme generator assistant, your job is to listen to your user's rant and come up with memes"},
-   *  {role: "user", message: "user's input"},
-   * {role: "assistant", message: "assistant's resopnse"},
-   * {role: "function"}
-   * ]
-   *
-   */
   const IMAGES = [
     '/drake-hotline-bling.jpg',
     '/two-buttons.jpg',
     '/two-buttons.jpg',
-
     '/drake-hotline-bling.jpg',
     '/two-buttons.jpg',
     '/drake-hotline-bling.jpg',

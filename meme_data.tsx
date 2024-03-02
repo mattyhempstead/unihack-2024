@@ -1,34 +1,4 @@
-import { MemeTemplate } from "./schema";
-import Image from "next/image";
-
-const memeTemplates: MemeTemplate[] = [
-  {
-    name: "drake_hotline_bling",
-    description: `
-    One of the most popular memes on the Internet, this template shows Drake first leaning to the side expressing distaste for a certain thing, then in the bottom panel, expressing more like for a similar but better thing. In the top panel (text_1), Drake says "no" to something he dislikes, but in the bottom panel (text_2), Drake says "yes" to something he likes. You should use the Drake meme maker to show a similar but subtly clear comparison between two things. 
-  
-    # Example
-    text_1: Use study guides
-    text_2: Don't study 
-    `,
-    arguments: [
-      {
-        fieldName: "text_1",
-        description: "something drake says 'no' to, something he dislikes",
-      },
-      {
-        fieldName: "text_2",
-        description: "something drake says 'yes' to, something he likes",
-      },
-    ],
-    render: ({ text_1, text_2 }) => (
-      <div className="border relative">
-        <div>IMAGE!</div>
-        <div className="absolute left-4">{text_1}</div>
-        <div className="absolute left-11">{text_2}</div>
-      </div>
-    ),
-  },
+export const memeTemplates: MemeTemplate[] = [
   {
     name: "persian_cat_room_guardian",
     description:
@@ -41,7 +11,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/persian_cat_room_guardian.jpg" />
+        <Image src="./persian_cat_room_guardian.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -58,11 +28,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image
-          width="800"
-          height="500"
-          src="/cats_can_have_a_little_salami.jpg"
-        />
+        <Image src="./cats_can_have_a_little_salami.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -79,7 +45,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/smudge_the_cat.jpg" />
+        <Image src="./smudge_the_cat.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -96,11 +62,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image
-          width="800"
-          height="500"
-          src="/ouhhh_husbant_now_we_are_homeress.jpg"
-        />
+        <Image src="./ouhhh_husbant_now_we_are_homeress.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -117,7 +79,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/wawa_cat_oh_the_misery_cat.jpg" />
+        <Image src="./wawa_cat_oh_the_misery_cat.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -134,7 +96,24 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/its_over.jpg" />
+        <Image src="./its_over.jpg" />
+        <div className="absolute left-4">{text_1}</div>
+      </div>
+    ),
+  },
+  {
+    name: "i_be_poppin_bottles_sparkles_and_champagne_shannon_sharpe_fit_checks",
+    description:
+      'The meme "I be poppin bottles (sparkles) and champagne (Shannon Sharpe) fit checks" refers to a series of memes and social media posts that showcase sports commentator Shannon Sharpe’s distinctive style and exuberance, particularly during his appearances on sports talk shows or in celebratory contexts. Sharpe is known for his vibrant personality, sharp wit, and fashion sense. The humor in this meme comes from an exaggerated portrayal of Sharpe’s enthusiasm for life’s finer moments, like enjoying luxury and celebrating achievements, often depicted through stylized outfits, champagne, and his infectious energy. This meme resonates because of Sharpe\'s charismatic public persona, making any reference to his "fit checks" or celebratory actions a playful nod to living life to the fullest and enjoying success with flair.',
+    arguments: [
+      {
+        fieldName: "text_1",
+        description: "text 1",
+      },
+    ],
+    render: ({ text_1 }) => (
+      <div className="border relative">
+        <Image src="./i_be_poppin_bottles_sparkles_and_champagne_shannon_sharpe_fit_checks.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -151,7 +130,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/ronaldo_sipping_drinking.jpg" />
+        <Image src="./ronaldo_sipping_drinking.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -168,7 +147,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/the_rocks_eyebrow_raise.jpg" />
+        <Image src="./the_rocks_eyebrow_raise.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -185,7 +164,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/duck_chick_with_knife.jpg" />
+        <Image src="./duck_chick_with_knife.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -202,7 +181,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/limmy_waking_up.jpg" />
+        <Image src="./limmy_waking_up.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -219,7 +198,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/sweaty_speedrunner.jpg" />
+        <Image src="./sweaty_speedrunner.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -236,7 +215,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/crying_wojak.jpg" />
+        <Image src="./crying_wojak.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -253,7 +232,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/will_you_shut_up_man__2.jpg" />
+        <Image src="./will_you_shut_up_man__2.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -270,7 +249,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/bonk_cheems.jpg" />
+        <Image src="./bonk_cheems.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -287,7 +266,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/catjam_vibing_cat.jpg" />
+        <Image src="./catjam_vibing_cat.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -304,7 +283,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/thumbs_up_crying_cat.jpg" />
+        <Image src="./thumbs_up_crying_cat.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -321,17 +300,30 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image
-          width="800"
-          height="500"
-          src="/mother_ignoring_kid_drowning_in_a_pool.jpg"
-        />
+        <Image src="./mother_ignoring_kid_drowning_in_a_pool.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
   },
   {
-    name: "joe_rogan_daniel_cormier",
+    name: "%F0%9F%91%89%F0%9F%91%88_two_fingers_touching",
+    description:
+      'The "👉👈 Two Fingers Touching" meme, often represented by emojis or illustrated images, depicts a shy or hesitant gesture of someone putting their index fingers together. This meme symbolizes feeling timid, bashful, or asking for something in a timid way, playing on the awkwardness of asking for something directly or expressing a desire. It gained popularity on platforms like Twitter and Tumblr, where users shared it to convey a sense of vulnerability or a request that might be perceived as embarrassing in a cute or relatable manner. The humor in this meme comes from its relatable depiction of social anxiety or shyness, making it versatile for expressing a wide range of requests or emotions in a lighthearted and relatable way.',
+    arguments: [
+      {
+        fieldName: "text_1",
+        description: "text 1",
+      },
+    ],
+    render: ({ text_1 }) => (
+      <div className="border relative">
+        <Image src="./%F0%9F%91%89%F0%9F%91%88_two_fingers_touching.jpg" />
+        <div className="absolute left-4">{text_1}</div>
+      </div>
+    ),
+  },
+  {
+    name: "joe_rogan_daniel_cormier_and_jon_anik_ufc_248_reaction",
     description:
       "The meme featuring Joe Rogan, Daniel Cormier, and Jon Anik reacting during UFC 248 captures a moment of intense shock and awe. Originating from a March 2020 Ultimate Fighting Championship event, this image shows the commentators' exaggerated facial expressions in response to a particularly surprising moment in a fight. Their wide eyes, open mouths, and overall body language communicate a profound and unexpected turn of events, making it a perfect template for expressing over-the-top reactions to incredible or shocking information in various contexts. Its humor lies in the hyperbolic representation of being surprised or amazed, allowing users to apply it to everyday situations that are, in reality, far less dramatic, thus exaggerating their own responses humorously. It encapsulates the feeling of being so emotionally invested in something that one can't help but react in an exaggerated manner, making it versatile for internet humor across different scenarios.",
     arguments: [
@@ -342,11 +334,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image
-          width="800"
-          height="500"
-          src="/joe_rogan_daniel_cormier_and_jon_anik_ufc_248_reaction.jpg"
-        />
+        <Image src="./joe_rogan_daniel_cormier_and_jon_anik_ufc_248_reaction.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -363,11 +351,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image
-          width="800"
-          height="500"
-          src="/what_the_hell_happened_here.jpg"
-        />
+        <Image src="./what_the_hell_happened_here.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -384,7 +368,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/oof_stones.jpg" />
+        <Image src="./oof_stones.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -401,7 +385,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/crying_cat.jpg" />
+        <Image src="./crying_cat.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -418,7 +402,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/arthurs_fist.jpg" />
+        <Image src="./arthurs_fist.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -435,7 +419,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/feels_good.jpg" />
+        <Image src="./feels_good.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -452,7 +436,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/awkward_look_monkey_puppet.jpg" />
+        <Image src="./awkward_look_monkey_puppet.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -469,7 +453,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/dimitri_finds_out.jpg" />
+        <Image src="./dimitri_finds_out.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -486,7 +470,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/elmo_rise.jpg" />
+        <Image src="./elmo_rise.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -503,7 +487,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/polite_cat.jpg" />
+        <Image src="./polite_cat.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -520,7 +504,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/american_chopper_argument.jpg" />
+        <Image src="./american_chopper_argument.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -537,7 +521,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/you_tried.jpg" />
+        <Image src="./you_tried.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -554,7 +538,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/omg_cat.jpg" />
+        <Image src="./omg_cat.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -571,7 +555,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/inhaling_seagull.jpg" />
+        <Image src="./inhaling_seagull.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -588,11 +572,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image
-          width="800"
-          height="500"
-          src="/confused_nick_young_swaggy_p.jpg"
-        />
+        <Image src="./confused_nick_young_swaggy_p.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -609,7 +589,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/terrified_noot_noot.jpg" />
+        <Image src="./terrified_noot_noot.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -626,7 +606,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/scared_hamster.jpg" />
+        <Image src="./scared_hamster.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -643,7 +623,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/sweating_jordan_peele.jpg" />
+        <Image src="./sweating_jordan_peele.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -660,7 +640,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/putting_on_clown_makeup.jpg" />
+        <Image src="./putting_on_clown_makeup.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -677,7 +657,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/evil_toddler.jpg" />
+        <Image src="./evil_toddler.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -694,13 +674,13 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/willem_dafoe_looking_up.jpg" />
+        <Image src="./willem_dafoe_looking_up.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
   },
   {
-    name: "clap_emoji",
+    name: "clap_emoji_%F0%9F%91%8F",
     description:
       'The "Clap Emoji" meme involves inserting the 👏 emoji between words in a sentence, used online to mimic the gesture of clapping between words for emphasis in spoken conversation. This often serves to accentuate the point being made, enforcing a tone of insistence or intensity. Though it can be used to mimic applause or agreement, in meme culture, it\'s primarily employed for humorous or sarcastic effect, particularly to mock or satirize the perceived overuse or unnecessary application of emphasis in digital communication. The visual interruption of the clap emoji between each word grabs attention and exaggerates the sentiment, making it a popular choice for comedic effect in internet discourse.',
     arguments: [
@@ -711,7 +691,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/clap_emoji_%F0%9F%91%8F.jpg" />
+        <Image src="./clap_emoji_%F0%9F%91%8F.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -728,7 +708,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/the_world_if.jpg" />
+        <Image src="./the_world_if.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -745,7 +725,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/are_you_sure_about_that.jpg" />
+        <Image src="./are_you_sure_about_that.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -762,7 +742,7 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/panik_kalm.jpg" />
+        <Image src="./panik_kalm.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
@@ -779,11 +759,9 @@ const memeTemplates: MemeTemplate[] = [
     ],
     render: ({ text_1 }) => (
       <div className="border relative">
-        <Image width="800" height="500" src="/screaming_cat.jpg" />
+        <Image src="./screaming_cat.jpg" />
         <div className="absolute left-4">{text_1}</div>
       </div>
     ),
   },
 ];
-
-export { memeTemplates };

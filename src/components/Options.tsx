@@ -10,7 +10,7 @@ export default function Options({
   alreadySelected: boolean;
 }) {
   return (
-    <div className="flex gap-3">
+    <div className="flex gap-3 justify-center">
       {options.map((option, idx: number) => (
         <button
           key={idx}

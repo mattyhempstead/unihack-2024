@@ -15,7 +15,7 @@ export default function Chat() {
   return (
     <div className="flex flex-col items-center p-10 gap-3">
       <h1 className="text-5xl font-bold">AI Meme Generator</h1>
-      <p className="">
+      <p>
         Tell us about your day! We'll generate the right meme for you to express
         your complex emotions.
       </p>
@@ -23,8 +23,8 @@ export default function Chat() {
         <Link href="/generate">Generate a Meme</Link>
       </button>
       <div className="grid grid-cols-4 grid-flow-dense w-3/4">
-        {IMAGES.map((src) => (
-          <img src={src} className="border" />
+        {IMAGES.map((src, idx) => (
+          <img src={src} key={idx} className="border" />
         ))}
       </div>
     </div>

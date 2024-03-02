@@ -1,5 +1,6 @@
 "use client";
 
+import { type FunctionCallHandler } from "ai";
 import { useChat } from "ai/react";
 
 type MemeTemplates = "drake_hotline" | "distracted_boyfriend";
@@ -12,21 +13,27 @@ type GenerateMemeArgs = {
 function generateMeme(args: GenerateMemeArgs) {}
 
 export default function Chat() {
+  const onFunctionCall: FunctionCallHandler = async (
+    chatMessages,
+    functionCall
+  ) => {
+    console.log("function handler!");
+
+    if (functionCall.name === "generate_drake_hotline_bling_meme") {
+      const parsedArgs = JSON.parse(functionCall.arguments ?? "");
+      console.log(parsedArgs);
+
+      // render meme
+    }
+
+    return {
+      messages: chatMessages,
+    };
+  };
+
   const { messages, input, handleInputChange, handleSubmit } = useChat({
-    initialMessages: [
-      {
-        id: "SYSTEM",
-        role: "system",
-        content:
-          "You're an annoying assistant, your job is to respond using as many meows as possible",
-      },
-      {
-        id: "SYSTEM_2",
-        role: "system",
-        content:
-          "You can call a function called generateMeme, it creates memes! If you want to use this function, you need to provide the following arguments: template (enum), message (string). You will need to respond in a JSON format",
-      },
-    ],
+    initialMessages: [],
+    experimental_onFunctionCall: onFunctionCall,
   });
 
   /**

@@ -67,7 +67,7 @@ export default function Generate() {
   };
 
   return (
-    <div className="flex flex-col max-w-md justify-between py-24 mx-auto stretch bg-slate-300">
+    <div className="flex flex-col max-w-md justify-between py-24 mx-auto stretch">
       <div>
         <pre>{JSON.stringify(state, null, 2)}</pre>
         {memeJsx}

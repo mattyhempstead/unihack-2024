@@ -7,25 +7,38 @@
 
 import client from "./client";
 
-export type Store = {
+
+export type MemeStored = {
   meme_id: string;
   name: string;
   props: {
     [fieldName: string]: string;
   };
+}
+
+export type Store = {
+  memes: MemeStored[],
 };
+
+
+const DEFAULT_STORE = {
+  memes: [],
+}
+
+
+export async function resetStore(): Promise<void> {
+  writeStore(DEFAULT_STORE);
+}
+
 
 export async function readStore(): Promise<Store> {
   let result = await client.get("store");
-
+  console.log("Read store", result);
   if (result) {
+    console.log(result);
     return JSON.parse(result) as Store;
   } else {
-    return {
-      meme_id: "0",
-      name: "no_name",
-      props: {},
-    };
+    return DEFAULT_STORE;
   }
 
   //   let result = await client.hGetAll("memes");
@@ -50,6 +63,7 @@ export async function readStore(): Promise<Store> {
 }
 
 export async function writeStore(data: Store) {
+  console.log("Writing store", data);
   await client.set("store", JSON.stringify(data));
 
   //   await client.hSet("memes", data.meme_id, JSON.stringify(data));
@@ -69,3 +83,11 @@ export async function writeStore(data: Store) {
   //     props: JSON.stringify(data.props),
   //   });
 }
+
+
+export async function writeMeme(meme:MemeStored) {
+  const store = await readStore();
+  store.memes.push(meme);
+  await writeStore(store);
+}
+

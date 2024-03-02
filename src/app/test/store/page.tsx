@@ -1,5 +1,5 @@
 // THIS IS SSR
-import { getStore, reset, increment } from '@/store/test';
+import { getStore, reset } from '@/store/test';
 
 export default async function Test() {
 
@@ -21,13 +21,17 @@ export default async function Test() {
         <p>
             store: {JSON.stringify(await getStore())}
         </p>
-
+{/* 
         <form action={reset}>
             <button type="submit">Reset</button>
         </form>
 
         <form action={increment}>
             <button type="submit">Increment</button>
+        </form> */}
+        
+        <form action={reset}>
+            <button type="submit">RESET ENTIRE STORE</button>
         </form>
     </div>
 }

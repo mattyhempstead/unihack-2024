@@ -1,6 +1,6 @@
 'use server';
 
-import { Store, readStore, writeStore } from './store';
+import { Store, readStore, writeStore, resetStore } from './store';
 
 
 export async function getStore() {
@@ -8,13 +8,6 @@ export async function getStore() {
 }
 
 export async function reset() {
-    await writeStore({
-        foo: 0,
-    });
+    await resetStore();
 }
 
-export async function increment() {
-    let store = await readStore();
-    store["foo"] += 1;
-    await writeStore(store);
-}

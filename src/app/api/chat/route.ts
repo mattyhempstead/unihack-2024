@@ -6,7 +6,7 @@ import { memeTemplates } from "@/meme-gen/memes";
 
 const functions = memeTemplates.map((template) => createFunctionDesc(template));
 
-console.log("functions", functions);
+// console.log("functions", functions);
 
 const systemPrompts: OpenAI.Chat.Completions.ChatCompletionMessageParam[] = [
   {

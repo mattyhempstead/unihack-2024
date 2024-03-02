@@ -1,7 +1,7 @@
-import React from 'react';
-import { memeTemplates } from '@/meme-gen/memes';
+import React from "react";
+import { memeTemplates } from "@/meme-gen/memes";
 
-import ChatAvatar from './ChatAvatar';
+import ChatAvatar from "./ChatAvatar";
 
 type MemeGenState = {
   name: string;
@@ -20,7 +20,7 @@ export default function ChatMessage({
   state?: MemeGenState;
 }) {
   const memeRenderer = memeTemplates.find(
-    (template) => template.name === state?.name,
+    (template) => template.name === state?.name
   )?.render;
 
   const memeJsx =
@@ -29,7 +29,7 @@ export default function ChatMessage({
     <div className="flex gap-2">
       <ChatAvatar role={role} />
       <div>
-        <h3 className="font-bold">{role === 'user' ? 'You' : 'AI'}</h3>
+        <h3 className="font-bold">{role === "user" ? "You" : "AI"}</h3>
         {!message && memeJsx ? (
           <>{memeJsx}</>
         ) : (

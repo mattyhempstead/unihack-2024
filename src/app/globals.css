@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+body::before {
+  content: ''; /* Required for pseudo-elements */
+  position: fixed; /* Cover the entire page */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/background.jpg'); /* Your background image */
+  background-size: cover; /* Cover the entire page */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  opacity: 0.2; /* Set the opacity to 10% */
+  z-index: -1; /* Ensure it's behind the content */
+}

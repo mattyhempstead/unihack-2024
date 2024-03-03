@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import { MemeStored } from "@/store/store";
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { MemeStored } from '@/store/store';
 
 export default function Chat() {
   const [memesBoard, setMemesBoard] = useState<MemeStored[]>([]);
 
   useEffect(() => {
     async function fetchMemesAndSet() {
-      const response = await fetch("/api/getMemes");
+      const response = await fetch('/api/getMemes');
       const result = await response.json();
       console.log(result);
       if (result) {
@@ -31,7 +31,7 @@ export default function Chat() {
         <Link href="/generate">Generate a Meme</Link>
       </button>
       <div className="grid grid-cols-4 grid-flow-dense w-3/4">
-        {memesBoard?.map(({ meme_id, name }, idx) => (
+        {memesBoard?.map(({ meme_id, name }) => (
           <Image
             src={`/${name}.jpg`}
             key={meme_id}

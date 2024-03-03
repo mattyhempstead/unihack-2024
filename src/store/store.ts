@@ -5,8 +5,7 @@
     Turns out u can't really store arrays well :'(
 */
 
-import client from "./client";
-
+import client from './client';
 
 export type MemeStored = {
   meme_id: string;
@@ -14,28 +13,23 @@ export type MemeStored = {
   props: {
     [fieldName: string]: string;
   };
-}
-
-export type Store = {
-  memes: MemeStored[],
 };
 
+export type Store = {
+  memes: MemeStored[];
+};
 
-const DEFAULT_STORE = {
+const DEFAULT_STORE: Store = {
   memes: [],
-}
-
+};
 
 export async function resetStore(): Promise<void> {
   writeStore(DEFAULT_STORE);
 }
 
-
 export async function readStore(): Promise<Store> {
-  let result = await client.get("store");
-  console.log("Read store", result);
+  let result = await client.get('store');
   if (result) {
-    console.log(result);
     return JSON.parse(result) as Store;
   } else {
     return DEFAULT_STORE;
@@ -63,8 +57,8 @@ export async function readStore(): Promise<Store> {
 }
 
 export async function writeStore(data: Store) {
-  console.log("Writing store", data);
-  await client.set("store", JSON.stringify(data));
+  console.log('Writing store', data);
+  await client.set('store', JSON.stringify(data));
 
   //   await client.hSet("memes", data.meme_id, JSON.stringify(data));
 
@@ -84,10 +78,9 @@ export async function writeStore(data: Store) {
   //   });
 }
 
-
-export async function writeMeme(meme:MemeStored) {
+export async function writeMeme(meme: MemeStored) {
   const store = await readStore();
+  console.log('Read store in writeMEME:' + JSON.stringify(store));
   store.memes.push(meme);
   await writeStore(store);
 }
-

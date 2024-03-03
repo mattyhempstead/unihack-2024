@@ -1,14 +1,13 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { type FunctionCallHandler } from "ai";
-import { useChat } from "ai/react";
+import React, { useState } from 'react';
+import { type FunctionCallHandler } from 'ai';
+import { useChat } from 'ai/react';
 
-import { getFunctionName } from "@/meme-gen/schema";
-import { memeTemplates } from "@/meme-gen/memes";
-import Options from "@/components/Options";
-import ChatAvatar from "@/components/ChatAvatar";
-import ChatMessage from "@/components/ChatMessage";
+import { getFunctionName } from '@/meme-gen/schema';
+import { memeTemplates } from '@/meme-gen/memes';
+import Options from '@/components/Options';
+import ChatMessage from '@/components/ChatMessage';
 
 type MemeGenState = {
   meme_id: string;
@@ -18,26 +17,26 @@ type MemeGenState = {
   };
 } | null;
 
-const moods = ["Ecstatic!!!", "Happy :)", "Sad :(", "Depressed ;.;"];
+const moods = ['Ecstatic!!!', 'Happy :)', 'Sad :(', 'Depressed ;.;'];
 
 export default function Generate() {
   const [state, setState] = React.useState<MemeGenState>(null);
 
   const onFunctionCall: FunctionCallHandler = async (
     chatMessages,
-    functionCall
+    functionCall,
   ) => {
-    console.log("function handler!");
+    console.log('function handler!');
 
     const memeTemplate = memeTemplates.find(
-      (template) => getFunctionName(template.name) === functionCall.name
+      (template) => getFunctionName(template.name) === functionCall.name,
     );
 
     const new_meme_id =
-      "id" + Math.random().toString(16).slice(2) + "_" + state?.name;
+      'id' + Math.random().toString(16).slice(2) + '_' + state?.name;
 
     if (memeTemplate) {
-      const parsedArgs = JSON.parse(functionCall.arguments ?? "");
+      const parsedArgs = JSON.parse(functionCall.arguments ?? '');
       console.log(parsedArgs);
       console.log(chatMessages);
 
@@ -48,10 +47,10 @@ export default function Generate() {
       });
 
       // send meme back to server
-      fetch("/api/storeMeme", {
-        method: "POST",
+      fetch('/api/storeMeme', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           meme_id: new_meme_id,
@@ -74,7 +73,7 @@ export default function Generate() {
   const handleSelectMood = (option: string) => {
     setMoodSelected(true);
     append({
-      role: "user",
+      role: 'user',
       content: `I'm ${option}`,
     });
   };
@@ -88,7 +87,7 @@ export default function Generate() {
             message="Hello, how is your day going?"
           />
           {messages
-            .filter((m) => m.role === "user" || m.role === "assistant")
+            .filter((m) => m.role === 'user' || m.role === 'assistant')
             .map((m, idx) => (
               <ChatMessage
                 role={m.role}

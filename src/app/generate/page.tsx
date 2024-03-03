@@ -5,6 +5,8 @@ import { type FunctionCallHandler } from "ai";
 import { useChat, type Message } from "ai/react";
 import { clsx } from "clsx";
 import { nanoid } from "nanoid";
+import { LuTwitter } from "react-icons/lu";
+import { MdDownload, MdLink } from "react-icons/md";
 
 import { getFunctionName } from "@/meme-gen/schema";
 import { memeTemplates } from "@/meme-gen/memes";
@@ -192,7 +194,18 @@ export default function Generate() {
         <h1 className="text-2xl text-white text-center">
           Here is your meme! Hope u like it xD
         </h1>
-        {memeComp}
+        <div className="text-white text-xl">{memeComp}</div>
+        <div className="bg-white rounded-xl p-8 flex gap-x-6 items-center justify-center">
+          <span className="text-2xl text-purple-600">
+            <LuTwitter />
+          </span>
+          <span className="text-2xl text-purple-600">
+            <MdDownload />
+          </span>
+          <span className="text-2xl text-purple-600">
+            <MdLink />
+          </span>
+        </div>
       </div>
     );
   }

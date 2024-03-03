@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import { MemeStored } from '@/store/store';
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { MemeStored } from "@/store/store";
 
 export default function Chat() {
   const [memesBoard, setMemesBoard] = useState<MemeStored[]>([]);
 
   useEffect(() => {
     async function fetchMemesAndSet() {
-      const response = await fetch('/api/getMemes');
+      const response = await fetch("/api/getMemes");
       const result = await response.json();
       console.log(result);
       if (result) {
@@ -21,16 +21,21 @@ export default function Chat() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center p-10 gap-3">
-      <h1 className="text-5xl font-bold">AI Meme Generator</h1>
-      <p>
-        Tell us about your day! We&apos;ll generate the right meme for you to
-        express your complex emotions.
-      </p>
-      <button className="bg-blue-500 text-white rounded-lg p-2">
-        <Link href="/generate">Generate a Meme</Link>
-      </button>
-      <div className="grid grid-cols-4 grid-flow-dense w-3/4">
+    <div className="max-w-screen-md mx-auto pt-8">
+      <section className="mb-8">
+        <h1 className="text-8xl font-bold text-white">Meme MACHINE</h1>
+        <p className="text-white">
+          Tell us about your day! We&apos;ll generate the right meme for you to
+          express your complex emotions.
+        </p>
+        <Link
+          className="block text-center mt-4 text-white bg-purple-950 p-8 text-2xl rounded-lg shadow-md w-full hover:bg-purple-400"
+          href="/generate"
+        >
+          Generate a Meme
+        </Link>
+      </section>
+      <div className="grid grid-cols-4 bg-white/50">
         {memesBoard?.map(({ meme_id, name }) => (
           <Image
             src={`/${name}.jpg`}
